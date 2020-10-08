@@ -60,6 +60,7 @@
   if($_POST["delete"]){
      if(isset($_POST["del"]) && isset($_POST["del_pass"])){
     $id = $_POST["del"];//どのidのものを削除するか
+	$pass=$_POST["del_pass"];
 	$sql = 'delete from first where id=:id and password=:password';
 	$stmt = $pdo->prepare($sql);
 	$stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -71,11 +72,13 @@
   if($_POST["edit_submit"]){
      if(isset($_POST["edit_comment"]) && isset($_POST["edit_pass"]) && isset($_POST["edit_num"])){
     $id = $_POST["edit_num"]; //変更する投稿番号
+	$pass=$_POST["edit_pass"];     
 	$comment = $_POST["edit_comment"]; //コメント変更
-	$sql = 'UPDATE first SET comment=:comment WHERE id=:id';
+	$sql = 'UPDATE first SET comment=:comment WHERE id=:id and password=:password';
 	$stmt = $pdo->prepare($sql);
 	$stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
 	$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+	$stmt -> bindParam(':password', $pass, PDO::PARAM_STR);
 	$stmt->execute();  
 	 
 }}
