@@ -60,9 +60,10 @@
   if($_POST["delete"]){
      if(isset($_POST["del"]) && isset($_POST["del_pass"])){
     $id = $_POST["del"];//どのidのものを削除するか
-	$sql = 'delete from first where id=:id';
+	$sql = 'delete from first where id=:id and password=:password';
 	$stmt = $pdo->prepare($sql);
 	$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+	$stmt -> bindParam(':password', $pass, PDO::PARAM_STR);
 	$stmt->execute();
 		
 }}
