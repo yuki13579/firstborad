@@ -3,29 +3,47 @@
 <head>
     <meta charset=UTF-8>
     <title>"mission_5-1"</title>
+    <link rel="stylesheet" href="mission_5-3.css">
 </head>
 <body>
+<header>
+    <div class="title">簡易掲示板</div>
+</header>
+
+    
     <form action=""method="post">
-        <p>［投稿フォーム ]<br><input type="text" name="name" placeholder="名前">
-        <input type="text" name="comment" placeholder="コメントをどうぞ"><br>
-        <input type="password" name="pass" style="ime-mode:disabled;" placeholder="password">
+      <section class="forms">
+        <p>
+        <h3>[ 投稿フォーム ]</h3><br>
+        <div class="form">
+        NAME:<input type="text" name="name" placeholder="名前"><br>
+        <input type="text" name="comment" style="width:500px;height:100px" placeholder="コメントをどうぞ"><br>
+        PASSWORD:<input type="password" name="pass" style="ime-mode:disabled;" placeholder="password">
         <input type="submit" name="submit"><br>*********************************************
-        </p>
-        <p>[ 削除フォーム]<br><input type="num" name="del" style="width:100px" placeholder="削除対象番号"><br>
-        <input type="password" name="del_pass" style="ime-mode:disabled;" placeholder="password">
+        </p></div>
+        <p>
+        <h3>[ 削除フォーム ]</h3><br>
+        <div class="form">
+        NO.<input type="num" name="del" style="width:100px" placeholder="削除対象番号"><br>
+        PASSWORD:<input type="password" name="del_pass" style="ime-mode:disabled;" placeholder="password">
         <input type="submit" name="delete" value="削除"><br>*********************************************
-        </p>
-        <p>[ 編集フォーム ]<br>投稿番号:<input type="num" name="edit_num" placeholder="番号"><br>
-        編集内容:<input type="str" name="edit_comment" ><br>
-        <input type="password" name="edit_pass" style="ime-mode:disabled;" placeholder="password">
-        <input type="submit" name="edit_submit" value="edit">
-        </p><hr>
-    </form>
+        </p></div>
+        <p>
+        <h3>[ 編集フォーム ]</h3><br>
+        <div class="form">
+        NO.<input type="num" name="edit_num" placeholder="投稿番号"><br>
+        <input type="str" name="edit_comment" style="width:500px;height:100px" placeholder="編集内容"><br>
+        PASSWORD:<input type="password" name="edit_pass" style="ime-mode:disabled;" placeholder="password">
+        <input type="submit" name="edit_submit" value="編集">
+        </p></div>
+    </form><hr>
+    
+
 <?php
     //データベース接続に必要な情報、接続
-	$dsn = 'データベース名';
-	$user = 'ユーザ名';
-	$password = 'パスワード';
+	$dsn = 'mysql:dbname=tb220606db;host=localhost';
+	$user = 'tb-220606';
+	$password = 'FQFDD3Xvre';
 	$pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 	
 	//テーブル作成（名前、コメント、投稿日時、パスワードの情報を入れる）
@@ -93,12 +111,12 @@
 	//$rowの中にはテーブルのカラム名が入る
 		echo $row['id'].',';
 		echo $row['name'].',';
-		echo $row['comment'].',';
 		echo $row['timestamp'].',';
-		echo $row['pass'].'<br>';
+		echo $row['comment'].'<br>';
     	echo "<hr>";
 }
  
 ?>
+</section>
 </body>
 </html>
