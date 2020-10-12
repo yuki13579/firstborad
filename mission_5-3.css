@@ -1,0 +1,35 @@
+body{
+   font-color:#333;
+   font-family:verdana,sans-serif;
+   font-size:20px;
+   margin:0;
+   }
+   
+header{
+    background-color:#efefef;
+    padding-top:40px;
+    }
+    
+.title{
+    
+    font-size:50px;
+    height:160px;
+    width:250px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items:center;
+}
+    
+.form{
+   width:500px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.forms h3{
+   width:200px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top:0;
+   margin-bottom:0;
+}
